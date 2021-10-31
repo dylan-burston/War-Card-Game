@@ -1,0 +1,19 @@
+
+
+.deck {
+	border: solid black 2px;
+	height: 200px;
+	width: 150px;
+	border-radius: 10%;
+	background-color: grey;
+	
+}
+
+.currentCards {
+	background-color: white;
+	border: 2px solid black;
+	height: 200px;
+	width: 100px;
+	border-radius: 10%;
+	background-image: url("images/blue.svg");
+}
