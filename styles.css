@@ -1,19 +1,27 @@
+/* 
+.container {
+	background-color: rgb(73, 167, 73);
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+} */
 
-
-.deck {
-	border: solid black 2px;
-	height: 200px;
-	width: 150px;
+.deckInPlay {
 	border-radius: 10%;
-	background-color: grey;
+	height: 250px;
+	width: 150px;
+	border: 2px solid red;
+	align-items: center;
 	
 }
 
-.currentCards {
-	background-color: white;
-	border: 2px solid black;
-	height: 200px;
-	width: 100px;
-	border-radius: 10%;
-	background-image: url("images/blue.svg");
+/* .cards {
+	background-color: rgb(73, 167, 73);
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+} */
+
+.header {
+	justify-content: center;
 }
