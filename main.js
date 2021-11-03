@@ -1,22 +1,31 @@
-// constant variables 
+// CONSTANTS
 
-const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
-const values = ['A', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+const suits = ['h', 's', 'd', 'c'];
+const values = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
 
-const arrClubs = ["clubs-A.svg"];
-const arrSpades = [".card back-red"];
-const arrDiamonds = [];
-const arrHearts = [];
-// changing variables 
+// VARIABLES
 
 let dealtCards;
 let deckCount = 52;
-let playerCard; 
-let compCard;
+let playerCard; // current card
+let compCard; // current card
 let cardCountC; // TOTAL amount of cards computer has
 let cardCountP; // TOTAL amount of cards player has 
 
 let wonCards // need this variable in order to count the winnings AFTER each turn??
+
+// EVENT LISTENERS
+
+// let class1 = "card back-red";
+playerCard = document.getElementById('playerCard') 
+//playerCard.setAttribute("class", class1) // now instead of class1 need to add (suit + value) and pass it through 
+
+
+
+flippedCard()
+
+var playBtn = document.querySelector('#startBtn')
+playBtn.addEventListener('click', play); 
 
 
 // classes --> when will classes be used? classes vs what? 
@@ -24,6 +33,9 @@ let wonCards // need this variable in order to count the winnings AFTER each tur
 
 // FUNCTIONS 
 
+function play(){
+    console.log('LETS WAAAAR')
+}
 // called at the end of EVERY turn IF there is no war so playerCard !== compCard
 function clearBoard(){
 
@@ -36,6 +48,16 @@ function clearBoard(){
     // let cardCountC = 0;
 
 }
+
+function flippedCard(value){
+    playerCard.classList.add('card', 'back-red');
+}
+
+function showCardValue(value){
+    playerCard.classList.remove('back-red')
+    playerCard.classList.add('card', value);
+}
+
 
 function shuffleDeck(){
     let deckCount = Math.floor(Math.random() * 52) 
