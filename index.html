@@ -4,13 +4,90 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>War Game</title>
+	<link rel="stylesheet" href="styles.css"/>
+	<link rel="stylesheet" href="card-deck-css/css/cardstarter.css"/>
+	<script src="main.js" defer></script>
+</head>
+<body>
+	<div class="inPlayCards">
+		<div class="playableContainer">
+			<div class="cpuInPlayContainer">
+				<div class="card hearts r04" id="inPlayCpu"></div>
+			</div>
+			<div class="playerInPlayContainer">
+				<div class="card spades r04" id="inPlayPlayer"></div>
+			</div>
+		</div>
+    </div>
+	<div class="dealtContainer">
+        <div class="cpuInfo">
+            <div class="cpuContainer">
+                <div class="card back-red"></div>
+            </div>
+            <div class="cpuTally"></div>
+        </div>
+        <div class="playerInfo">
+            <div class="playerTally"></div>
+            <div class="playerContainer">
+                <div class="card back-blue"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>War</title>
 	<link rel="stylesheet" href="styles.css"/>
 	<link rel="stylesheet" href="card-deck-css/css/cardstarter.css"/>
 
+	<script src="main.js" defer></script>
 </head>
 <body>
-	<div id="container">
+	<div class="row1">
+		<div class="playerCard"></div>
+		<div class="playerFlipped"></div>
+	</div>
+	<div class="row2">
+		<div class="compUnflipped"></div>
+		<div class="winningCardsComp"></div>
+	</div>
+
+
+
+ -->
+
+
+	<!-- <div id="container">
 		<header class="header">
 			&clubs;
 			&hearts;
@@ -20,22 +97,25 @@
 		</header>
 		<div id="start"></div>
 		<div class="msgToUser"></div>
-		<div id="board"></div>
+		<div id="board">
 			<div id="player1" class="players">
 				<div class="cardCountP"></div>
-				<div id="playerCard">
-			</div>
+				<div id="playerCard" class="flippedCards"></div>
+				<div id="winningCardsP">
+					<p>Winnings</p>
+				</div>
 			</div>
 			<div id="comp" class="players">
 				<div class="cardCountC"></div>
-				<div id="compCard"></div>
+				<div id="compCard" class="flippedCards"></div>
+				<div id="winningCardsC">
+					<p>winnings</p>
+				</div>
 			</div>
 			<div class="WarBtn">
 				<button id="startBtn" class="btn">Let's Rumble!</button>
 			</div>
-	</div>
-	<script src="main.js"></script>"
+		</div>
+	</div> 
 </body>
-</html>
-
-
+</html> -->

@@ -1,27 +1,78 @@
-/* 
-.container {
-	background-color: rgb(73, 167, 73);
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
-} */
+.playableContainer {
+	display: flex; 	/*forces children to be horizontal*/
+	justify-content: space-evenly;
+}
 
-.deckInPlay {
-	border-radius: 10%;
-	height: 250px;
-	width: 150px;
-	border: 2px solid red;
-	align-items: center;
+.cpuTally, .playerTally {
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+}
+
+.dealtContainer, .cpuInfo, .playerInfo{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #board {
+	background-color: green;
+	display: flex;
+	flex-direction: space-between;
+}
+
+#container {
+	height: 100%;
+}
+ */
+
+/* .flippedCards {
+		justify-content: center;
+		height: 100px;
+		width: 60px;
+		background-color: red;
+		text-align: center;
+		font-size: 15px;
+		align-self: center;
+	  }
+
+.flipped-container {
+		justify-content: center
+	  }
 	
+
+#playerCard {
+	background-color: red;
+}  */
+
+
+/* .row1 {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	background-color: black;
 }
 
-/* .cards {
-	background-color: rgb(73, 167, 73);
-	position: absolute;
-	height: 100vh;
-	width: 100vw;
+.compFlipped .playerFlipped .winningCardsComp .compUnflipped {
+	border: solid black 2px;
+	height: 200px;
+	width: 200px;
+	align-items: center;
+	background-color: black;
 } */
-
-.header {
-	justify-content: center;
-}
