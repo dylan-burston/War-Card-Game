@@ -1,6 +1,19 @@
+body {
+	background-color: green;
+	border: solid black 1px;
+	height: 80vh;;
+	width: 80vw;
+	margin: auto;
+	margin-top: 5vh;
+}
+
 .playableContainer {
 	display: flex; 	/*forces children to be horizontal*/
 	justify-content: space-evenly;
+	border: 1px solid black;
+	width: 400px;
+	margin: auto;
+	background-image: url("image.jpeg");
 }
 
 .cpuTally, .playerTally {
@@ -12,4 +25,13 @@
 .dealtContainer, .cpuInfo, .playerInfo{
 	display: flex;
 	justify-content: space-evenly;
+}
+
+.inPlayCards, .dealtContainer {
+	margin: auto;
+	margin-top: 15vh;
+}
+
+.cpuInPlayContainer, .playerInPlayContainer {
+	margin-top: 40px; /* how to make this vertically even? justify content doesnt seem to work */
 }
