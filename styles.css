@@ -5,7 +5,6 @@ body {
 	width: 80vw;
 	margin: auto;
 	margin-top: 5vh;
-	background: linear-gradient(45deg, black, transparent);
 }
 
 .playableContainer {
@@ -41,8 +40,8 @@ body {
 
 .gamePlay {
 	display: flex;
-	justify-content: center;
-	color: white;
+	flex-direction: column;
+	color: black;
 }
 
 .gamePlay:hover {
