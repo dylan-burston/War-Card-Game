@@ -24,4 +24,20 @@ function flipCard() {
     }
 }
 
+function clearDeck(){
+    let 
+}
+
+
+function countDeck (){
+
+}
+
+function deckWar(){
+    let randomPCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
+    let randomCpuCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
+    if(randomPCard === randomCpuCard){
+        // deal 3 more cards // 
+    }
+}
 
