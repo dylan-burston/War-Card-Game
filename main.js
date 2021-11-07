@@ -19,8 +19,8 @@ function flipCard() {
     let randomPCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
     let randomCpuCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
     if(randomPCard !== randomCpuCard){
-        playerCard.className = `card ${randomPCard}`;
-        cpuCard.className = `card ${randomCpuCard}`;
+        playerCard.className = `card large ${randomPCard}`;
+        cpuCard.className = `card large ${randomCpuCard}`;
     }
 }
 

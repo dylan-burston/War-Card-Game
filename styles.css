@@ -1,19 +1,22 @@
 body {
 	background-color: green;
-	border: solid black 1px;
+	border: solid black 5px;
 	height: 80vh;;
 	width: 80vw;
 	margin: auto;
 	margin-top: 5vh;
+	background: linear-gradient(45deg, black, transparent);
 }
 
 .playableContainer {
 	display: flex; 	/*forces children to be horizontal*/
-	justify-content: space-evenly;
+	justify-content: space-between;
 	border: 1px solid black;
 	width: 400px;
 	margin: auto;
 	background-image: url("image.jpeg");
+	background-size: 100% 100%;
+	border-radius: 20%;
 }
 
 .cpuTally, .playerTally {
@@ -33,5 +36,11 @@ body {
 }
 
 .cpuInPlayContainer, .playerInPlayContainer {
-	margin-top: 40px; /* how to make this vertically even? justify content doesnt seem to work */
+	margin-top: 40px;
+}
+
+.instructions {
+	display: flex;
+	justify-content: center;
+	color: white;
 }
