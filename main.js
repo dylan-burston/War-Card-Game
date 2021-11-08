@@ -11,11 +11,14 @@ playerTallyEl = document.querySelector(".playerTally");
 cpuTallyEl = document.querySelector(".cpuTally");
 shuffleBtnEl = document.querySelector(".shuffle");
 gameBodyEl = document.querySelector('.gameBody');
+playerTallyEl = document.querySelector(".playerTally");
+cpuTallyEl = document.querySelector(".cpuTally");
 instructionsEl = document.querySelector('.instructions');
+forceWinBtnEl = document.querySelector('.forceWin')
 
 shuffleBtnEl = document.addEventListener("click", shuffle);
 playerContainerEl.addEventListener("click", flipCard);
-
+// forceWinBtnEl.addEventListener("click", forceWin);
 
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
@@ -69,22 +72,32 @@ function determineValue(incomingCard) {
     let trueValues = [2,3,4,5,6,7,8,9,10,11,12,13,14];
     for (let i=0; i<values.length; i++) {
         if (incomingCard.substring(1) === values[i]) {
-            // substring => '06'
+            // string -> h06 would be 06... 1 index is 0
             numericalValue = trueValues[i]; // so true value is 6
         }
     }
     return numericalValue;
 }
-// determine value compares the value of the actual card to the VALUES const array in the beginning 
 
-function countDeck (){
-
+function war(playerCards, cpuCards){
+    // console.log('playerCards: ', playerCards, 'cpuCards: ', cpuCards);
+    lastFourPCards = playerCards.slice(Math.max(playerCards.length -4, 0));
+    lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
+    // console.log('player cards:', lastFourPCards, 'cpu cards', lastFourCpuCards)
+    let [lastPCards, lastCpuCards] = compare(lastFourPCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPCards, lastFourCpuCards);
+    if (lastPCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
+        playerCards = [playerCards, lastCpuCards].flat();
+     } else if (lastCpuCards.length === 5){
+        cpuCards = [cpuCards, lastPCards].flat();
+     } else {
+         war(playerCards, cpuCards);
+     }
+     tally(playerCards, cpuCards);
 }
 
-function deckWar(){
-    let randomPCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
-    let randomCpuCard = suits[Math.floor(Math.random() * suits.length)] + values[Math.floor(Math.random()* values.length)]
-    if(randomPCard === randomCpuCard){
-        // deal 3 more cards // 
-    }
+function tally(playerCards, cpuCards){
+    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
+    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
 }
+
+
