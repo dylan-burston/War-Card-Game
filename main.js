@@ -18,7 +18,7 @@ forceWinBtnEl = document.querySelector('.forceWin')
 
 shuffleBtnEl = document.addEventListener("click", shuffle);
 playerContainerEl.addEventListener("click", flipCard);
-// forceWinBtnEl.addEventListener("click", forceWin);
+forceWinBtnEl.addEventListener("click", forceWin);
 
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
@@ -31,17 +31,15 @@ function shuffle() {
     }
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
-    console.log("Player cards inside shuffle are", playerCards);
-    console.log("CPU cards inside shuffle are", cpuCards);
+    // console.log("Player cards inside shuffle are", playerCards);
+    // console.log("CPU cards inside shuffle are", cpuCards);
     return [playerCards, cpuCards];
 }
 
 function flipCard() {
-    // console.log("player cards", playerCards);
-    // console.log("cpu cards", cpuCards);
     let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
-    compare(randomPCard, randomCpuCard, playerCards, cpuCards) // why?
+    compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
     }
@@ -90,9 +88,9 @@ function war(playerCards, cpuCards){
      } else if (lastCpuCards.length === 5){
         cpuCards = [cpuCards, lastPCards].flat();
      } else {
-         war(playerCards, cpuCards);
+        war(playerCards, cpuCards);
      }
-     tally(playerCards, cpuCards);
+        tally(playerCards, cpuCards);
 }
 
 function tally(playerCards, cpuCards){
@@ -100,4 +98,8 @@ function tally(playerCards, cpuCards){
     cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
 }
 
-
+function forceWin(playerCards, cpuCards){
+   playerCards = cards;
+   cpuCards = [];
+   tally(playerCards, cpuCards)
+}

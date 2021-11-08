@@ -1,10 +1,11 @@
 body {
-	background-color: green;
 	border: solid black 5px;
 	height: 80vh;;
 	width: 80vw;
 	margin: auto;
 	margin-top: 5vh;
+	background-image: url("card-deck-css/images/cardgame.jpeg");
+	object-fit: cover;
 }
 
 .playableContainer {
@@ -22,6 +23,7 @@ body {
 	border: 1px solid black;
 	height: 100px;
 	width: 100px;
+	color: rgb(214, 187, 187);
 }
 
 .dealtContainer, .cpuInfo, .playerInfo{
@@ -46,4 +48,16 @@ body {
 
 .gamePlay:hover {
 	font-size: large;
+}
+
+.instructions > h1, h2 {
+	padding: 2px;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgb(214, 187, 187);
+}
+
+.instructions > h2 {
+	text-align: center;
+	text-transform: lowercase;
 }
