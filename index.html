@@ -10,13 +10,14 @@
 	<script src="main.js" defer></script>
 </head>
 <body>
+	<div class="gameBody" style="display:none">
 	<div class="inPlayCards">
 		<div class="playableContainer">
 			<div class="cpuInPlayContainer">
-				<div class="card large hearts r04" id="inPlayCpu"></div>
+				<div class="card large joker-red" id="inPlayCpu"></div>
 			</div>
 			<div class="playerInPlayContainer">
-				<div class="card large spades r04" id="inPlayPlayer"></div>
+				<div class="card large joker-black" id="inPlayPlayer"></div>
 			</div>
 		</div>
     </div>
@@ -25,7 +26,7 @@
             <div class="cpuContainer">
                 <div class="card large back-red"></div>
             </div>
-            <div class="cpuTally">Total cards:</div>
+            <div class="cpuTally">Total cards:</div>s
         </div>
         <div class="playerInfo">
             <div class="playerTally">Total cards:</div>
@@ -35,7 +36,9 @@
         </div>
     </div>
 	<button class="gamePlay">Gameplay</button>
-	<div class="instructions" style="display:none">
+	<button class="forceWin">Win!</button> <!--will need this if game goes on too long, forceWin only for player because player is best. -->
+	</div>
+	<div class="instructions" style="display:block">
 		<h2>THE DEAL</h2>
 			<p>The deck is divided evenly, with each player receiving 26 cards, face down. Each player's stack of cards is face down, in front of them.</p>
 		</h2>THE PLAY<h2>
@@ -46,7 +49,7 @@
 			<p>The game ends when one player has won all the cards.</p>
 		</h2>
 	</div>
-
+	<button class="shuffle">Render Game</button>
 </body>
 </html>
 
@@ -63,66 +66,3 @@
 
 
 
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>War</title>
-	<link rel="stylesheet" href="styles.css"/>
-	<link rel="stylesheet" href="card-deck-css/css/cardstarter.css"/>
-
-	<script src="main.js" defer></script>
-</head>
-<body>
-	<div class="row1">
-		<div class="playerCard"></div>
-		<div class="playerFlipped"></div>
-	</div>
-	<div class="row2">
-		<div class="compUnflipped"></div>
-		<div class="winningCardsComp"></div>
-	</div>
-
-
-
- -->
-
-
-	<!-- <div id="container">
-		<header class="header">
-			&clubs;
-			&hearts;
-			WAR 
-			&spades;
-			&diams;
-		</header>
-		<div id="start"></div>
-		<div class="msgToUser"></div>
-		<div id="board">
-			<div id="player1" class="players">
-				<div class="cardCountP"></div>
-				<div id="playerCard" class="flippedCards"></div>
-				<div id="winningCardsP">
-					<p>Winnings</p>
-				</div>
-			</div>
-			<div id="comp" class="players">
-				<div class="cardCountC"></div>
-				<div id="compCard" class="flippedCards"></div>
-				<div id="winningCardsC">
-					<p>winnings</p>
-				</div>
-			</div>
-			<div class="WarBtn">
-				<button id="startBtn" class="btn">Let's Rumble!</button>
-			</div>
-		</div>
-	</div> 
-</body>
-</html> -->
