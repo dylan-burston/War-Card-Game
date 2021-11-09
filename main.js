@@ -15,8 +15,10 @@ playerTallyEl = document.querySelector(".playerTally");
 cpuTallyEl = document.querySelector(".cpuTally");
 instructionsEl = document.querySelector('.instructions');
 forceWinBtnEl = document.querySelector('.forceWin')
+endGameEl = document.querySelector('.endGame')
 
-shuffleBtnEl = document.addEventListener("click", shuffle);
+
+shuffleBtnEl = document.querySelector('.shuffle').addEventListener("click", shuffle);
 playerContainerEl.addEventListener("click", flipCard);
 forceWinBtnEl.addEventListener("click", forceWin);
 
@@ -31,8 +33,6 @@ function shuffle() {
     }
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
-    // console.log("Player cards inside shuffle are", playerCards);
-    // console.log("CPU cards inside shuffle are", cpuCards);
     return [playerCards, cpuCards];
 }
 
@@ -50,15 +50,17 @@ function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
     let numericalCpu;
     numericalPlayer = determineValue(randomPCard);
     numericalCpu = determineValue(randomCpuCard);
-    // console.log("random cards and their values", randomPCard, randomCpuCard,  numericalPlayer, numericalCpu);
     if (numericalPlayer > numericalCpu) {
         playerCards.push(randomCpuCard);
-        let cpuCardIndex = cpuCards.indexOf(randomCpuCard);
+        console.log(randomCpuCard, {playerCards})
+    let cpuCardIndex = cpuCards.indexOf(randomCpuCard);
         cpuCards.splice(cpuCardIndex, 1); // get ONE element out of the array located at cpuCardIndex
+        tally(cpuCards.length, playerCards.length)
     } else if (numericalCpu > numericalPlayer) {
         cpuCards.push(randomPCard);
-        let pCardIndex = playerCards.indexOf(randomPCard);
+    let pCardIndex = playerCards.indexOf(randomPCard);
         playerCards.splice(pCardIndex, 1);
+        tally(cpuCards.length, playerCards.length)
     } else {
         console.log('war')
     }
@@ -78,15 +80,13 @@ function determineValue(incomingCard) {
 }
 
 function war(playerCards, cpuCards){
-    // console.log('playerCards: ', playerCards, 'cpuCards: ', cpuCards);
-    lastFourPCards = playerCards.slice(Math.max(playerCards.length -4, 0));
+    lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
-    // console.log('player cards:', lastFourPCards, 'cpu cards', lastFourCpuCards)
-    let [lastPCards, lastCpuCards] = compare(lastFourPCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPCards, lastFourCpuCards);
-    if (lastPCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
+    let [lastPlayerCards, lastCpuCards] = compare(lastFourPlayerCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPlayerCards, lastFourCpuCards);
+    if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
         playerCards = [playerCards, lastCpuCards].flat();
      } else if (lastCpuCards.length === 5){
-        cpuCards = [cpuCards, lastPCards].flat();
+        cpuCards = [cpuCards, lastPlayerCards].flat();
      } else {
         war(playerCards, cpuCards);
      }
@@ -94,12 +94,20 @@ function war(playerCards, cpuCards){
 }
 
 function tally(playerCards, cpuCards){
-    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
-    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
+    playerTallyEl.innerText = `Total cards: ${playerCards}`;
+    cpuTallyEl.innerText = `Total cards: ${cpuCards}`;
 }
 
 function forceWin(playerCards, cpuCards){
    playerCards = cards;
    cpuCards = [];
    tally(playerCards, cpuCards)
+}
+
+function endGame(){
+    gameBodyEl.style = "display: block";
+    instructionsEl.style = "display: block";
+    if(){
+
+    }
 }
