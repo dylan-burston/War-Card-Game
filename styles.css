@@ -1,5 +1,4 @@
 body {
-	border: solid black 5px;
 	height: 80vh;;
 	width: 80vw;
 	margin: auto;
@@ -64,5 +63,23 @@ body {
 
 .announcement {
 	color:rgb(214, 187, 187);
-	font-size: 30px;
+	font-size: 60px;
+	animation: blinker 1s linear infinite;
+	text-align: center;
 }
+
+button:hover{
+	cursor: pointer;
+	filter: invert(1);
+}
+/* 
+  @keyframes .announcement {
+	50% {
+	  opacity: 0;
+	}
+  } */
+
+  .warContainer{
+	  display: flex;
+	  justify-content: center;
+  }

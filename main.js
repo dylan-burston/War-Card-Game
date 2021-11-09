@@ -16,6 +16,8 @@ instructionsEl = document.querySelector('.instructions');
 forceWinBtnEl = document.querySelector('.forceWin')
 endGameEl = document.querySelector('.endGame')
 announcementEl = document.querySelector(".announcement");
+warPCardEl = document.getElementById("warPCard");
+warCpuCardEl = document.getElementById("warCpuCard")
 
 
 shuffleBtnEl.addEventListener("click", shuffle);
@@ -41,6 +43,8 @@ function shuffle() {
 
 
 function flipCard() {
+    warPCardEl.className = "";
+    warCpuCardEl.className = "";
     let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
     compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
@@ -86,6 +90,8 @@ function determineValue(incomingCard) {
 function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
+    warPCardEl.className = ???
+    warCpuCardEl.className = ????
     let [lastPlayerCards, lastCpuCards] = compare(lastFourPlayerCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPlayerCards, lastFourCpuCards);
     if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
         playerCards = [playerCards, lastCpuCards].flat();
@@ -102,6 +108,7 @@ function tally(playerCards, cpuCards){
     cpuTallyEl.innerText = `Total cards: ${cpuCards}`;
 }
 
+// war can be a very long game, added to forfeit the cpu 
 function forceWin(playerCards, cpuCards){
    playerCards = cards;
    cpuCards = [];
