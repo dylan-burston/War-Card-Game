@@ -1,7 +1,6 @@
 const suits = ['h', 's', 'd', 'c'];
 const values = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 
-
 cpuCard = document.getElementById("inPlayCpu");
 playerCard = document.getElementById("inPlayPlayer");
 playerContainerEl = document.querySelector(".playerContainer");
@@ -16,18 +15,21 @@ cpuTallyEl = document.querySelector(".cpuTally");
 instructionsEl = document.querySelector('.instructions');
 forceWinBtnEl = document.querySelector('.forceWin')
 endGameEl = document.querySelector('.endGame')
+announcementEl = document.querySelector(".announcement");
 
 
-shuffleBtnEl = document.querySelector('.shuffle').addEventListener("click", shuffle);
+shuffleBtnEl.addEventListener("click", shuffle);
 playerContainerEl.addEventListener("click", flipCard);
 forceWinBtnEl.addEventListener("click", forceWin);
 
+// empty card array to push deck of 52 into it.. 
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
 
 function shuffle() {
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
+    announcementEl.style = "display: none";
     if (cards.length === 52) {
         cards = cards.sort(() => 0.5 - Math.random());
     }
@@ -101,13 +103,10 @@ function tally(playerCards, cpuCards){
 function forceWin(playerCards, cpuCards){
    playerCards = cards;
    cpuCards = [];
-   tally(playerCards, cpuCards)
+   tally(playerCards, cpuCards);
+   gameBodyEl.style = "display: none";
+   announcementEl.style = "display: block"
+   announcementEl.innerText = "Player 1 Wins!!"
 }
 
-function endGame(){
-    gameBodyEl.style = "display: block";
-    instructionsEl.style = "display: block";
-    if(){
 
-    }
-}

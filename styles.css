@@ -61,3 +61,8 @@ body {
 	text-align: center;
 	text-transform: lowercase;
 }
+
+.announcement {
+	color:rgb(214, 187, 187);
+	font-size: 30px;
+}
