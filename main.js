@@ -26,17 +26,19 @@ forceWinBtnEl.addEventListener("click", forceWin);
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
 
+
+// dont need to put if statement with 52 cards because above you created the deck of 52 cards and named it cards! redundant 
 function shuffle() {
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
     announcementEl.style = "display: none";
-    if (cards.length === 52) {
-        cards = cards.sort(() => 0.5 - Math.random());
-    }
+    cards = cards.sort(() => 0.5 - Math.random());
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
-    return [playerCards, cpuCards];
+    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
+    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`
 }
+
 
 function flipCard() {
     let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
