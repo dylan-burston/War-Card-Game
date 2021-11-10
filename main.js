@@ -58,13 +58,7 @@ function flipCard() {
     cpuCard.className = `card large ${randomCpuCard}`;
     [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards);
     tally(playerCards, cpuCards)
-    console.log(playerCards.length)
-
-    // compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
-    // playerCard.className = `card large ${randomPCard}`;
-    // cpuCard.className = `card large ${randomCpuCard}`;
-    }
-
+}
 
 function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
     let numericalPlayer = determineValue(randomPCard); // need the real value of the cards 
@@ -82,13 +76,7 @@ function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
         [playerCards, cpuCards] = war(playerCards, cpuCards) // //updates player card and cpu cards once war has happened, war runs the war function 
         // console.log("player cards after war", playerCards.length, "cpu cards after war", cpuCards.length)
     } else {
-        announcementEl.style = "display: block";
-        gameBodyEl.style = "display: none";
-        if (playerCards.length > cpuCards.length) {
-            announcementEl.innerText = "Player Wins!"
-        } else {
-            announcementEl.innerText = "CPU Wins!"
-        }
+        displayWinner(playerCards, cpuCards); // how can compare without access.. need to have playerCards, cpu Cards
     }
     return [playerCards, cpuCards]
        
@@ -112,6 +100,7 @@ function war(playerCards, cpuCards){
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
     warPCardEl.className = `card large ${lastFourPlayerCards[lastFourPlayerCards.length - 1]}`;
     warCpuCardEl.className = `card large ${lastFourCpuCards[lastFourCpuCards.length - 1]}`;
+
     let [lastPlayerCards, lastCpuCards] = compare(lastFourPlayerCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPlayerCards, lastFourCpuCards);
     if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
         playerCards = [playerCards, lastCpuCards].flat();
@@ -128,14 +117,21 @@ function tally(playerCards, cpuCards){
     cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
 }
 
+function displayWinner(playerCards, cpuCards){
+    announcementEl.style = "display: block";
+    gameBodyEl.style = "display: none";
+    if (playerCards.length > cpuCards.length) {
+        announcementEl.innerText = "Player Wins!"
+    } else {
+        announcementEl.innerText = "CPU Wins!"
+    }
+}
+
 // war can be a very long game, added to forfeit the cpu 
 function forceWin(playerCards, cpuCards){
    playerCards = cards;
    cpuCards = [];
-   tally(playerCards, cpuCards);
-   gameBodyEl.style = "display: none";
-   announcementEl.style = "display: block"
-   announcementEl.innerText = "Player 1 Wins!!"
+   displayWinner(playerCards, cpuCards)
 }
 
 
