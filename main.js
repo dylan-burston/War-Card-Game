@@ -28,9 +28,15 @@ forceWinBtnEl.addEventListener("click", forceWin);
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
 
+let playerCards;
+let cpuCards;
+let lastFourCpuCards;
+let lastFourPlayerCards;
+// whenever function is ran needs to uypdate these variables dynamically 
 
-// dont need to put if statement with 52 cards because above you created the deck of 52 cards and named it cards! redundant 
 function shuffle() {
+    playerCard.className = "card large joker-black"; // after shuffle aka render game card class returns to joker 
+    cpuCard.className = "card large joker-red";
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
     announcementEl.style = "display: none";
@@ -47,32 +53,44 @@ function flipCard() {
     warCpuCardEl.className = "";
     let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
-    compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
+    console.log("before flip", randomPCard);
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
+    [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards);
+
+    // compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
+    // playerCard.className = `card large ${randomPCard}`;
+    // cpuCard.className = `card large ${randomCpuCard}`;
     }
 
 
 function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
-    let numericalPlayer;
-    let numericalCpu;
-    numericalPlayer = determineValue(randomPCard);
-    numericalCpu = determineValue(randomCpuCard);
+    let numericalPlayer = determineValue(randomPCard); // need the real value of the cards 
+    let numericalCpu = determineValue(randomCpuCard);
     if (numericalPlayer > numericalCpu) {
         playerCards.push(randomCpuCard);
-        console.log(randomCpuCard, {playerCards})
-    let cpuCardIndex = cpuCards.indexOf(randomCpuCard);
+        let cpuCardIndex = cpuCards.indexOf(randomCpuCard);
         cpuCards.splice(cpuCardIndex, 1); // get ONE element out of the array located at cpuCardIndex
-        tally(cpuCards.length, playerCards.length)
     } else if (numericalCpu > numericalPlayer) {
         cpuCards.push(randomPCard);
-    let pCardIndex = playerCards.indexOf(randomPCard);
+        let pCardIndex = playerCards.indexOf(randomPCard);
         playerCards.splice(pCardIndex, 1);
-        tally(cpuCards.length, playerCards.length)
+        // tally(cpuCards.length, playerCards.length)
+    } else if (numericalCpu == numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ // cant go to war if one player has less than the amount of war cards aka 4
+        [playerCards, cpuCards] = war(playerCards, cpuCards) // //updates player card and cpu cards once war has happened, war runs the war function 
+        // console.log("player cards after war", playerCards.length, "cpu cards after war", cpuCards.length)
     } else {
-        console.log('war')
+        announcementEl.style = "display: block";
+        gameBodyEl.style = "display: none";
+        if (playerCards.length > cpuCards.length) {
+            announcementEl.innerText = "Player Wins!"
+        } else {
+            announcementEl.innerText = "CPU Wins!"
+        }
     }
-}
+    return [playerCards, cpuCards]
+       
+    }
 
 function determineValue(incomingCard) {
     // incomingCard = 'h06'
@@ -90,8 +108,8 @@ function determineValue(incomingCard) {
 function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
-    warPCardEl.className = ???
-    warCpuCardEl.className = ????
+    warPCardEl.className = `card large ${lastFourPlayerCards[lastFourPlayerCards.length - 1]}`;
+    warCpuCardEl.className = `card large ${lastFourCpuCards[lastFourCpuCards.length - 1]}`;
     let [lastPlayerCards, lastCpuCards] = compare(lastFourPlayerCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPlayerCards, lastFourCpuCards);
     if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
         playerCards = [playerCards, lastCpuCards].flat();
@@ -104,8 +122,8 @@ function war(playerCards, cpuCards){
 }
 
 function tally(playerCards, cpuCards){
-    playerTallyEl.innerText = `Total cards: ${playerCards}`;
-    cpuTallyEl.innerText = `Total cards: ${cpuCards}`;
+    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
+    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
 }
 
 // war can be a very long game, added to forfeit the cpu 
@@ -117,5 +135,5 @@ function forceWin(playerCards, cpuCards){
    announcementEl.style = "display: block"
    announcementEl.innerText = "Player 1 Wins!!"
 }
-
+setInterval(()=>tally(playerCards, cpuCards), 100)
 
