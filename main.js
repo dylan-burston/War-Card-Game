@@ -57,6 +57,8 @@ function flipCard() {
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
     [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards);
+    tally(playerCards, cpuCards)
+    console.log(playerCards.length)
 
     // compare(randomPCard, randomCpuCard, playerCards, cpuCards) 
     // playerCard.className = `card large ${randomPCard}`;
@@ -135,5 +137,5 @@ function forceWin(playerCards, cpuCards){
    announcementEl.style = "display: block"
    announcementEl.innerText = "Player 1 Wins!!"
 }
-setInterval(()=>tally(playerCards, cpuCards), 100)
+
 
