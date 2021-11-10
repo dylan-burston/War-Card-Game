@@ -98,18 +98,29 @@ function determineValue(incomingCard) {
 function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
+    let warPCard = lastFourPlayerCards[lastFourPlayerCards.length - 1];
+    let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
+    warPValue = determineValue(warPCard);
+    warCpuValue = determineValue(warCpuCard);
+
+
+    // NO DOUBLE WAR! this prevents double war from happening 
+    if (warCpuValue === warPValue) {
+        [playerCards, cpuCards] = war(playerCards, cpuCards);
+    }
+
     warPCardEl.className = `card large ${lastFourPlayerCards[lastFourPlayerCards.length - 1]}`;
     warCpuCardEl.className = `card large ${lastFourCpuCards[lastFourCpuCards.length - 1]}`;
 
-    let [lastPlayerCards, lastCpuCards] = compare(lastFourPlayerCards[lastFourPCards.length -1], lastFourCpuCards[lastFourCpuCards.length - 1], lastFourPlayerCards, lastFourCpuCards);
+    let [lastPlayerCards, lastCpuCards] = compare(warPCard, warCpuCard, lastFourPlayerCards, lastFourCpuCards);
     if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
         playerCards = [playerCards, lastCpuCards].flat();
-     } else if (lastCpuCards.length === 5){
-        cpuCards = [cpuCards, lastPlayerCards].flat();
+        cpuCards = cpuCards.slice(0,cpuCards.length-4);
      } else {
-        war(playerCards, cpuCards);
-     }
-        tally(playerCards, cpuCards);
+        cpuCards = [cpuCards, lastPlayerCards].flat();
+        playerCards = playerCards.slice(0,playerCards.length-4);
+    }   
+    return [playerCards, cpuCards]
 }
 
 function tally(playerCards, cpuCards){
