@@ -35,17 +35,17 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 ## Technologies Used
 <BR>
 <p align="left">
-  <img width="30" src="card-deck-css/images/html.jpeg"> 
+  <img width="50" src="card-deck-css/images/html.jpeg"> 
   HTML
 </p>
 <br>
 <p align="center">
-  <img width="30" src="card-deck-css/images/css.jpeg">
+  <img width="50" src="card-deck-css/images/css.jpeg">
   CSS
 </p>
 <br>
 <p align="right">
-  <img width="30" src="card-deck-css/images/js.jpeg"> 
+  <img width="50" src="card-deck-css/images/js.jpeg"> 
   JAVASCRIPT
 </p>
 
@@ -55,12 +55,6 @@ Click [here](https://pages.git.generalassemb.ly/dburston/War-Card-Game/) in orde
 **This is the first project written from the ground up by Dylan Burston.**
 - **[Linkedin](https://www.linkedin.com/in/dylan-burston-09727265/)**
 
-
-
-
-<p align="center">
-  <img width="30" src="card-deck-css/images/html.jpeg">
-</p>
 
 
 
