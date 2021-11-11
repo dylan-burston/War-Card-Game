@@ -4,9 +4,12 @@
 War is a 2 person card game. The deck is shuffled and split evenly between the two players - CPU and Player 1. Each player then flips a card automatically by clicking the player's deck (blue deck) and the highest value - regardless of suit - wins the cards in play. First player to collect all 52 cards wins the game. If both cards match then it's war! Each player automatically adds 3 cards to the In Play container and the 4th card is flipped, highest card wins the total amount of cards in play - 8. 
 
 **Note**
--- the cards shown in the In Play container immediately after the click have already been added/ subtracted from the appropriate deck.
-<!-- ![Rule Screen](card-deck-css/images/note.jpg) -->
-<img src="card-deck-css/images/note.jpg" alt="drawing" width="200"/>
+-- the cards shown in the In Play container immediately after the click have **already** been added/ subtracted from the appropriate deck. As you can see the displayed cards are 10 and 6, the computer of course won. That means that prior to the click the tally was CPU - 22 vs. Player - 28.
+
+<p align="center">
+  <img width="300" height="200" src="card-deck-css/images/note.jpg">
+</p>
+
 
 ## Screenshots 
 - This was the starting point for the game. From a simple wire frame came what could be considered the best WAR game on the net
@@ -30,9 +33,21 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 <br><br><br>
 
 ## Technologies Used
-- <img src="card-deck-css/images/html.jpeg" style="width:30px;"/> <br><br>
-- <img src="card-deck-css/images/css.jpeg" style="width:30px;"/> <br><br>
-- <img src="card-deck-css/images/js.jpeg" style="width:30px;"/> <br><br>
+<BR>
+<p align="left">
+  <img width="30" src="card-deck-css/images/html.jpeg"> 
+  HTML
+</p>
+<br>
+<p align="center">
+  <img width="30" src="card-deck-css/images/css.jpeg">
+  CSS
+</p>
+<br>
+<p align="right">
+  <img width="30" src="card-deck-css/images/js.jpeg"> 
+  JAVASCRIPT
+</p>
 
 ## Game Play
 Click [here](https://pages.git.generalassemb.ly/dburston/War-Card-Game/) in order to play the game. 
@@ -43,7 +58,9 @@ Click [here](https://pages.git.generalassemb.ly/dburston/War-Card-Game/) in orde
 
 
 
-
+<p align="center">
+  <img width="30" src="card-deck-css/images/html.jpeg">
+</p>
 
 
 
