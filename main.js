@@ -129,7 +129,6 @@ function displayWinner(playerCards, cpuCards){
     }
 }
 
-// war can be a very long game, added to forfeit the cpu 
 function forceWin(playerCards, cpuCards){
    playerCards = cards;
    cpuCards = [];
@@ -140,8 +139,8 @@ function forceWin(playerCards, cpuCards){
 // TESTING PURPOSES ONLY
 // need this to simulate game to see if it works
 function simulateGame() {
-    shuffle();
-    flipCard();
-    compare();
+    shuffle(); //splits deck, run by render GAME
+    setInterval(() => flipCard(playerCard, cpuCard), 100);
 }
+setTimeout(simulateGame, 1000);
 
