@@ -32,27 +32,24 @@ let cpuCards;
 let lastFourCpuCards;
 let lastFourPlayerCards;
 
-
 function shuffle() {
     playerCard.className = "card large joker-black"; 
     cpuCard.className = "card large joker-red";
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
     announcementEl.style = "display: none";
-    cards = cards.sort(() => 0.5 - Math.random());
+    cards = cards.sort(() => 0.5 - Math.random()); // EXPLAIN SORT
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
     playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
     cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`
 }
 
-
 function flipCard() {
-    warPCardEl.className = "";
+    warPCardEl.className = ""; // what does this do?
     warCpuCardEl.className = "";
     let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
-    console.log("before flip", randomPCard);
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
     [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards);
@@ -70,7 +67,7 @@ function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
         cpuCards.push(randomPCard);
         let pCardIndex = playerCards.indexOf(randomPCard);
         playerCards.splice(pCardIndex, 1);
-    } else if (numericalCpu == numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ 
+    } else if (numericalCpu === numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ 
         [playerCards, cpuCards] = war(playerCards, cpuCards) 
     } else {
         displayWinner(playerCards, cpuCards); 
@@ -97,17 +94,21 @@ function war(playerCards, cpuCards){
     let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
     warPValue = determineValue(warPCard);
     warCpuValue = determineValue(warCpuCard);
+
+    // NO TIED WAR 
     if (warCpuValue === warPValue) {
         [playerCards, cpuCards] = war(playerCards, cpuCards);
     }
-    warPCardEl.className = `card large ${lastFourPlayerCards[lastFourPlayerCards.length - 1]}`;
-    warCpuCardEl.className = `card large ${lastFourCpuCards[lastFourCpuCards.length - 1]}`;
+    console.log(playerCards, cpuCards)
+    warPCardEl.className = `card large ${warPCard}`;
+    warCpuCardEl.className = `card large ${warCpuCard}`;
 
     let [lastPlayerCards, lastCpuCards] = compare(warPCard, warCpuCard, lastFourPlayerCards, lastFourCpuCards);
-    if (lastPlayerCards.length === 5){ 
-        playerCards = [playerCards, lastCpuCards].flat();
+    
+    if (lastPlayerCards.length > lastCpuCards.length){
+        playerCards = [playerCards, warCpuCard, lastCpuCards].flat(); // makes one array
         cpuCards = cpuCards.slice(0,cpuCards.length-4);
-     } else {
+    } else {
         cpuCards = [cpuCards, lastPlayerCards].flat();
         playerCards = playerCards.slice(0,playerCards.length-4);
     }   
@@ -135,11 +136,8 @@ function forceWin(playerCards, cpuCards){
    displayWinner(playerCards, cpuCards)
 }
 
-
-// TESTING PURPOSES ONLY
-// need this to simulate game to see if it works
 function simulateGame() {
-    shuffle(); //splits deck, run by render GAME
+    shuffle(); 
     setInterval(() => flipCard(playerCard, cpuCard), 100);
 }
 setTimeout(simulateGame, 1000);
