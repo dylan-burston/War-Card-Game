@@ -5,7 +5,7 @@ cpuCard = document.getElementById("inPlayCpu");
 playerCard = document.getElementById("inPlayPlayer");
 playerContainerEl = document.querySelector(".playerContainer");
 cpuContainerEl = document.querySelector(".cpuContainer");
-displayGamePlay = document.querySelector(".instructions"); //display once button pushed 
+displayGamePlay = document.querySelector(".instructions"); 
 playerTallyEl = document.querySelector(".playerTally");
 cpuTallyEl = document.querySelector(".cpuTally");
 shuffleBtnEl = document.querySelector(".shuffle");
@@ -24,7 +24,6 @@ shuffleBtnEl.addEventListener("click", shuffle);
 playerContainerEl.addEventListener("click", flipCard);
 forceWinBtnEl.addEventListener("click", forceWin);
 
-// empty card array to push deck of 52 into it.. 
 let cards = [];
 suits.forEach(suit => values.forEach(value => cards.push(suit+value)));
 
@@ -32,10 +31,10 @@ let playerCards;
 let cpuCards;
 let lastFourCpuCards;
 let lastFourPlayerCards;
-// whenever function is ran needs to uypdate these variables dynamically 
+
 
 function shuffle() {
-    playerCard.className = "card large joker-black"; // after shuffle aka render game card class returns to joker 
+    playerCard.className = "card large joker-black"; 
     cpuCard.className = "card large joker-red";
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
@@ -61,35 +60,31 @@ function flipCard() {
 }
 
 function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
-    let numericalPlayer = determineValue(randomPCard); // need the real value of the cards 
+    let numericalPlayer = determineValue(randomPCard); 
     let numericalCpu = determineValue(randomCpuCard);
     if (numericalPlayer > numericalCpu) {
         playerCards.push(randomCpuCard);
         let cpuCardIndex = cpuCards.indexOf(randomCpuCard);
-        cpuCards.splice(cpuCardIndex, 1); // get ONE element out of the array located at cpuCardIndex
+        cpuCards.splice(cpuCardIndex, 1); 
     } else if (numericalCpu > numericalPlayer) {
         cpuCards.push(randomPCard);
         let pCardIndex = playerCards.indexOf(randomPCard);
         playerCards.splice(pCardIndex, 1);
-        // tally(cpuCards.length, playerCards.length)
-    } else if (numericalCpu == numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ // cant go to war if one player has less than the amount of war cards aka 4
-        [playerCards, cpuCards] = war(playerCards, cpuCards) // //updates player card and cpu cards once war has happened, war runs the war function 
-        // console.log("player cards after war", playerCards.length, "cpu cards after war", cpuCards.length)
+    } else if (numericalCpu == numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ 
+        [playerCards, cpuCards] = war(playerCards, cpuCards) 
     } else {
-        displayWinner(playerCards, cpuCards); // how can compare without access.. need to have playerCards, cpu Cards
+        displayWinner(playerCards, cpuCards); 
     }
     return [playerCards, cpuCards]
        
     }
 
 function determineValue(incomingCard) {
-    // incomingCard = 'h06'
     let numericalValue;
     let trueValues = [2,3,4,5,6,7,8,9,10,11,12,13,14];
     for (let i=0; i<values.length; i++) {
         if (incomingCard.substring(1) === values[i]) {
-            // string -> h06 would be 06... 1 index is 0
-            numericalValue = trueValues[i]; // so true value is 6
+            numericalValue = trueValues[i]; 
         }
     }
     return numericalValue;
@@ -102,18 +97,14 @@ function war(playerCards, cpuCards){
     let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
     warPValue = determineValue(warPCard);
     warCpuValue = determineValue(warCpuCard);
-
-
-    // NO DOUBLE WAR! this prevents double war from happening 
     if (warCpuValue === warPValue) {
         [playerCards, cpuCards] = war(playerCards, cpuCards);
     }
-
     warPCardEl.className = `card large ${lastFourPlayerCards[lastFourPlayerCards.length - 1]}`;
     warCpuCardEl.className = `card large ${lastFourCpuCards[lastFourCpuCards.length - 1]}`;
 
     let [lastPlayerCards, lastCpuCards] = compare(warPCard, warCpuCard, lastFourPlayerCards, lastFourCpuCards);
-    if (lastPlayerCards.length === 5){ // it is the compare function SO compares 1 card to 1 card, winner takes ONLY 1 card aka 4 of them and the 1 they won 
+    if (lastPlayerCards.length === 5){ 
         playerCards = [playerCards, lastCpuCards].flat();
         cpuCards = cpuCards.slice(0,cpuCards.length-4);
      } else {
@@ -145,4 +136,12 @@ function forceWin(playerCards, cpuCards){
    displayWinner(playerCards, cpuCards)
 }
 
+
+// TESTING PURPOSES ONLY
+// need this to simulate game to see if it works
+function simulateGame() {
+    shuffle();
+    flipCard();
+    compare();
+}
 

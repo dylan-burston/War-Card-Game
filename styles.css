@@ -8,7 +8,7 @@ body {
 }
 
 .playableContainer {
-	display: flex; 	/*forces children to be horizontal*/
+	display: flex; 	
 	justify-content: space-between;
 	border: 1px solid black;
 	width: 400px;
