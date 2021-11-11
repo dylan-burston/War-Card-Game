@@ -5,6 +5,8 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 
 **Note**
 -- the cards shown in the In Play container immediately after the click have already been added/ subtracted from the appropriate deck.
+<!-- ![Rule Screen](card-deck-css/images/note.jpg) -->
+<img src="card-deck-css/images/note.jpg" alt="drawing" width="200"/>
 
 ## Screenshots 
 - This was the starting point for the game. From a simple wire frame came what could be considered the best WAR game on the net
