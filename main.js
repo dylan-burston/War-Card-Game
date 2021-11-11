@@ -41,18 +41,18 @@ function shuffle() {
     cards = cards.sort(() => 0.5 - Math.random()); // EXPLAIN SORT
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
-    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
-    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`
+    playerTallyEl.innerText = ` ${playerCards.length}`;
+    cpuTallyEl.innerText = ` ${cpuCards.length}`
 }
 
 function flipCard() {
-    warPCardEl.className = ""; // what does this do?
+    warPCardEl.className = ""; // if war, epties the container below main in play cards,otherwise always in play  
     warCpuCardEl.className = "";
-    let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)]
+    let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)] // player cards.length-1 gets top card 
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
-    [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards);
+    [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards); // cards yuou are comparing, someone wins someone takes, arrays WILL be modified 
     tally(playerCards, cpuCards)
 }
 
@@ -68,7 +68,7 @@ function compare(randomPCard, randomCpuCard, playerCards, cpuCards) {
         let pCardIndex = playerCards.indexOf(randomPCard);
         playerCards.splice(pCardIndex, 1);
     } else if (numericalCpu === numericalPlayer && playerCards.length >= 4 && cpuCards.length >= 4){ 
-        [playerCards, cpuCards] = war(playerCards, cpuCards) 
+        [playerCards, cpuCards] = war(playerCards, cpuCards) // resetting reasigning cpu, playercards 
     } else {
         displayWinner(playerCards, cpuCards); 
     }
@@ -90,8 +90,10 @@ function determineValue(incomingCard) {
 function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
-    let warPCard = lastFourPlayerCards[lastFourPlayerCards.length - 1];
-    let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
+    // let warPCard = lastFourPlayerCards[lastFourPlayerCards.length - 1]; // last one of each 
+    // let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
+    let warPCard = lastFourPlayerCards[Math.floor(Math.random()*lastFourPlayerCards.length)] 
+    let warCpuCard = lastFourCpuCards[Math.floor(Math.random()*lastFourCpuCards.length)] 
     warPValue = determineValue(warPCard);
     warCpuValue = determineValue(warCpuCard);
 
@@ -99,7 +101,7 @@ function war(playerCards, cpuCards){
     if (warCpuValue === warPValue) {
         [playerCards, cpuCards] = war(playerCards, cpuCards);
     }
-    console.log(playerCards, cpuCards)
+    
     warPCardEl.className = `card large ${warPCard}`;
     warCpuCardEl.className = `card large ${warCpuCard}`;
 
@@ -116,8 +118,8 @@ function war(playerCards, cpuCards){
 }
 
 function tally(playerCards, cpuCards){
-    playerTallyEl.innerText = `Total cards: ${playerCards.length}`;
-    cpuTallyEl.innerText = `Total cards: ${cpuCards.length}`;
+    playerTallyEl.innerText = `${playerCards.length}`;
+    cpuTallyEl.innerText = `${cpuCards.length}`;
 }
 
 function displayWinner(playerCards, cpuCards){
@@ -136,9 +138,9 @@ function forceWin(playerCards, cpuCards){
    displayWinner(playerCards, cpuCards)
 }
 
-function simulateGame() {
-    shuffle(); 
-    setInterval(() => flipCard(playerCard, cpuCard), 100);
-}
-setTimeout(simulateGame, 1000);
+// function simulateGame() {
+//     shuffle(); 
+//     setInterval(() => flipCard(playerCard, cpuCard), 100);
+// }
+// setTimeout(simulateGame, 1000);
 

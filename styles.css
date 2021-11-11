@@ -18,11 +18,18 @@ body {
 	border-radius: 20%;
 }
 
-.cpuTally, .playerTally {
+.cpuBox, .playerBox {
 	border: 1px solid black;
 	height: 100px;
-	width: 100px;
+	width: 120px;
 	color: rgb(214, 187, 187);
+}
+
+.playerTally, .cpuTally {
+	font-size: 40px;
+	color: rgb(8, 211, 35);
+	text-align: center;
+	margin-top: 12px;
 }
 
 .dealtContainer, .cpuInfo, .playerInfo{
@@ -63,9 +70,10 @@ body {
 
 .announcement {
 	color:rgb(214, 187, 187);
-	font-size: 60px;
+	font-size: 150px;
 	animation: blinker 1s linear infinite;
 	text-align: center;
+	margin-top: 310px;
 }
 
 button:hover{
@@ -73,15 +81,16 @@ button:hover{
 	filter: invert(1);
 }
 
-  .warContainer{
-	  display: flex;
-	  justify-content: center;
+.warContainer{
+	display: flex;
+	justify-content: center;
   }
 
-  .gameName {
-	  display: flex;
-	  justify-content: center;
-	  font-size: 50px;
-	  margin-bottom: -120px;
-	  color: #d2d2db;
+.gameName {
+	display: flex;
+	justify-content: center;
+	font-size: 50px;
+	margin-bottom: -120px;
+	color: #d2d2db;
+	height: 175px;
   }
