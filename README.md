@@ -27,14 +27,14 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 <br><br><br>
 
 ## Technologies Used
-<img src="card-deck-css/images/html.jpeg" alt="drawing" style="width:30px;"/> 
-HTML
+
+- <img src="card-deck-css/images/html.jpeg" alt="drawing" style="width:30px;"/> HTML
+
+- <img src="card-deck-css/images/css.jpeg" alt="drawing" style="width:30px;"/> CSS
+
+- <img src="card-deck-css/images/js.jpeg" alt="drawing" style="width:30px;"/> Javascript
 <br><br>
-<img src="card-deck-css/images/css.jpeg" alt="drawing" style="width:30px;"/> 
-CSS
-<br><br>
-<img src="card-deck-css/images/js.jpeg" alt="drawing" style="width:30px;"/> Javascript
-<br><br><br>
+
 ## About the Creator 
 - This is the first project written from the ground up by Dylan Burston.. stay tuned for the next one!
 
