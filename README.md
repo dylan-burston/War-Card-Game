@@ -28,11 +28,11 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 
 ## Technologies Used
 
-- <img src="card-deck-css/images/html.jpeg" alt="drawing" style="width:30px;"/> HTML
+- <img src="card-deck-css/images/html.jpeg" style="width:30px;"/> HTML
 
-- <img src="card-deck-css/images/css.jpeg" alt="drawing" style="width:30px;"/> CSS
+- <img src="card-deck-css/images/css.jpeg" style="width:30px;"/> CSS
 
-- <img src="card-deck-css/images/js.jpeg" alt="drawing" style="width:30px;"/> Javascript
+- <img src="card-deck-css/images/js.jpeg" style="width:30px;"/> Javascript
 <br><br>
 
 ## About the Creator 

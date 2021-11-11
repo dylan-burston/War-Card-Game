@@ -46,9 +46,9 @@ function shuffle() {
 }
 
 function flipCard() {
-    warPCardEl.className = ""; // if war, epties the container below main in play cards,otherwise always in play  
+    warPCardEl.className = "";  
     warCpuCardEl.className = "";
-    let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)] // player cards.length-1 gets top card 
+    let randomPCard = playerCards[Math.floor(Math.random()*playerCards.length)] 
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
@@ -96,17 +96,12 @@ function war(playerCards, cpuCards){
     let warCpuCard = lastFourCpuCards[Math.floor(Math.random()*lastFourCpuCards.length)] 
     warPValue = determineValue(warPCard);
     warCpuValue = determineValue(warCpuCard);
-
-    // NO TIED WAR 
     if (warCpuValue === warPValue) {
         [playerCards, cpuCards] = war(playerCards, cpuCards);
     }
-    
     warPCardEl.className = `card large ${warPCard}`;
     warCpuCardEl.className = `card large ${warCpuCard}`;
-
     let [lastPlayerCards, lastCpuCards] = compare(warPCard, warCpuCard, lastFourPlayerCards, lastFourCpuCards);
-    
     if (lastPlayerCards.length > lastCpuCards.length){
         playerCards = [playerCards, warCpuCard, lastCpuCards].flat(); 
         cpuCards = cpuCards.slice(0,cpuCards.length-4);
@@ -138,7 +133,7 @@ function forceWin(playerCards, cpuCards){
    displayWinner(playerCards, cpuCards)
 }
 
-// THE BELOW FUNCTION CAN BE UNCOMMENTED IN ORDER TO QUICKLY AND AUTOMATICALLY RUN THROUGH A FULL GAME IN ORDER TO SEE THE WIN/LOSS CONDITION
+// THE BELOW FUNCTION CAN BE UNCOMMENTED IN ORDER TO AUTOMATICALLY RUN THROUGH A FULL GAME IN ORDER TO SEE THE WIN/LOSS CONDITION
 
 // function simulateGame() {
 //     shuffle(); 
