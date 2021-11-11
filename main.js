@@ -38,7 +38,7 @@ function shuffle() {
     gameBodyEl.style = "display: block";
     instructionsEl.style = "display: none";
     announcementEl.style = "display: none";
-    cards = cards.sort(() => 0.5 - Math.random()); // EXPLAIN SORT
+    cards = cards.sort(() => 0.5 - Math.random()); 
     playerCards = cards.slice(0, cards.length/2);
     cpuCards = cards.slice(cards.length/2, cards.length);
     playerTallyEl.innerText = ` ${playerCards.length}`;
@@ -108,7 +108,7 @@ function war(playerCards, cpuCards){
     let [lastPlayerCards, lastCpuCards] = compare(warPCard, warCpuCard, lastFourPlayerCards, lastFourCpuCards);
     
     if (lastPlayerCards.length > lastCpuCards.length){
-        playerCards = [playerCards, warCpuCard, lastCpuCards].flat(); // makes one array
+        playerCards = [playerCards, warCpuCard, lastCpuCards].flat(); 
         cpuCards = cpuCards.slice(0,cpuCards.length-4);
     } else {
         cpuCards = [cpuCards, lastPlayerCards].flat();
@@ -137,6 +137,8 @@ function forceWin(playerCards, cpuCards){
    cpuCards = [];
    displayWinner(playerCards, cpuCards)
 }
+
+// THE BELOW FUNCTION CAN BE UNCOMMENTED IN ORDER TO QUICKLY AND AUTOMATICALLY RUN THROUGH A FULL GAME IN ORDER TO SEE THE WIN/LOSS CONDITION
 
 // function simulateGame() {
 //     shuffle(); 
