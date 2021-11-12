@@ -65,17 +65,8 @@ This is the In Play container where the current cards in play will sit &#8595;
 <br>
 
 ## Let's Play!
-Click [here](https://pages.git.generalassemb.ly/dburston/War-Card-Game/) in order to play the game. 
+Click <a href="https://pages.git.generalassemb.ly/dburston/War-Card-Game/" target="_blank" rel="noopener noreferrer">here</a> to play the game. 
 <br><br>
 ## About the Creator 
-**This is the first project written from the ground up by Dylan Burston.**
+This is the first project written from the ground up by **Dylan Burston.**
 - **[Linkedin](https://www.linkedin.com/in/dylan-burston-09727265/)**
-
-
-
-
-
-
-
-
-
