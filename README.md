@@ -6,6 +6,9 @@ War is a 2 person card game. The deck is shuffled and split evenly between the t
 ```
 **Note**
 -- the cards shown in the In Play container immediately after the click have **already** been added/ subtracted from the appropriate deck. As you can see the displayed cards are 10 and 6, giving the win to the CPU. That means that prior to the click the tally was CPU - 22 vs. Player - 27.
+
+
+
 ```
 
 <p align="center">
