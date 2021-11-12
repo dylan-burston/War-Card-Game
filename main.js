@@ -33,6 +33,8 @@ let lastFourCpuCards;
 let lastFourPlayerCards;
 
 function shuffle() {
+    warPCardEl.className = "";  
+    warCpuCardEl.className = "";
     playerCard.className = "card large joker-black"; 
     cpuCard.className = "card large joker-red";
     gameBodyEl.style = "display: block";
@@ -133,7 +135,7 @@ function forceWin(playerCards, cpuCards){
    displayWinner(playerCards, cpuCards)
 }
 
-// THE BELOW FUNCTION CAN BE UNCOMMENTED IN ORDER TO AUTOMATICALLY RUN THROUGH A FULL GAME IN ORDER TO SEE THE WIN/LOSS CONDITION
+// THE BELOW FUNCTION CAN BE UNCOMMENTED OUT IN ORDER TO AUTOMATICALLY RUN THROUGH A FULL GAME TO SEE THE WIN/LOSS CONDITION QUICKER 
 
 // function simulateGame() {
 //     shuffle(); 

@@ -19,17 +19,19 @@ body {
 }
 
 .cpuBox, .playerBox {
-	border: 1px solid black;
+	border: 3px solid rgb(214, 187, 187);
 	height: 100px;
 	width: 120px;
 	color: rgb(214, 187, 187);
+	border-radius: 10%;
+	margin-top: 21px;
 }
 
 .playerTally, .cpuTally {
 	font-size: 40px;
 	color: rgb(8, 211, 35);
 	text-align: center;
-	margin-top: 12px;
+	margin-top: 8px;
 }
 
 .dealtContainer, .cpuInfo, .playerInfo{
@@ -75,6 +77,13 @@ body {
 	text-align: center;
 	margin-top: 310px;
 }
+button{
+	border-radius: 10%;
+	border: 2px solid rgb(214, 187, 187);
+	padding: 5px;
+	font-size: 20px;
+    font-family: emoji;
+}
 
 button:hover{
 	cursor: pointer;
@@ -93,4 +102,9 @@ button:hover{
 	margin-bottom: -120px;
 	color: #d2d2db;
 	height: 175px;
+  }
+
+  .tallyType {
+	  margin-top: 10px;
+	  text-align: center;
   }
