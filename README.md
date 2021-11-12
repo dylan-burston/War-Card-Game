@@ -20,7 +20,7 @@ The initial screen is where the rules are shown &#8595;
 <br><br>
 ![Rule Screen](card-deck-css/images/screenshot1.jpeg)
 <br><br>
-The game board where War is waged &#8595;
+The game board where WAR is waged &#8595;
 <br><br>
 ![Game Board](card-deck-css/images/screenshot2.jpeg)
 <br><br>
