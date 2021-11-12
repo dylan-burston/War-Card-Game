@@ -1,8 +1,7 @@
+# **WAR** a <span style="color:black">&spades;</span>battle <span style="color:red">&diams;</span>of<span style="color:black">&clubs;</span> cards <span style="color:red">&hearts;</span> 
 
-# **WAR** A Battle of Cards
 ## Rules and Game Play
 War is a 2 person card game. The deck is shuffled and split evenly between the two players - CPU and Player 1. Each player then flips a card automatically by clicking the player's deck (blue deck) and the highest value - regardless of suit - wins the cards in play. First player to collect all 52 cards wins the game. If both cards match then it's war! Each player automatically adds 3 cards to the In Play container and the 4th card is flipped, highest card wins the total amount of cards in play - 8. 
-
 <br><br>
 **Note**
 -- the cards shown in the In Play container immediately after the click have **already** been added/ subtracted from the appropriate deck. As you can see the displayed cards are 10 and 6, giving the win to the CPU. That means that prior to the click the tally was CPU - 22 vs. Player - 27.
@@ -52,6 +51,11 @@ This is the In Play container where the current cards in play will sit &#8595;
 <p align="left">
   <img width="50" src="card-deck-css/images/js.jpeg"> 
   JAVASCRIPT
+</p>
+<br>
+<p align="left">
+  <img width="50" src="card-deck-css/images/markdown.jpg"> 
+  MARKDOWN
 </p>
 <br><br>
 
