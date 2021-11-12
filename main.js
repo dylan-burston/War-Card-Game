@@ -9,12 +9,12 @@ displayGamePlay = document.querySelector(".instructions");
 playerTallyEl = document.querySelector(".playerTally");
 cpuTallyEl = document.querySelector(".cpuTally");
 shuffleBtnEl = document.querySelector(".shuffle");
-gameBodyEl = document.querySelector('.gameBody');
+gameBodyEl = document.querySelector(".gameBody");
 playerTallyEl = document.querySelector(".playerTally");
 cpuTallyEl = document.querySelector(".cpuTally");
-instructionsEl = document.querySelector('.instructions');
-forceWinBtnEl = document.querySelector('.forceWin')
-endGameEl = document.querySelector('.endGame')
+instructionsEl = document.querySelector(".instructions");
+forceWinBtnEl = document.querySelector(".forceWin")
+endGameEl = document.querySelector(".endGame")
 announcementEl = document.querySelector(".announcement");
 warPCardEl = document.getElementById("warPCard");
 warCpuCardEl = document.getElementById("warCpuCard");
@@ -59,7 +59,7 @@ function flipCard() {
     let randomCpuCard = cpuCards[Math.floor(Math.random()*cpuCards.length)]
     playerCard.className = `card large ${randomPCard}`;
     cpuCard.className = `card large ${randomCpuCard}`;
-    [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards); // cards yuou are comparing, someone wins someone takes, arrays WILL be modified
+    [playerCards, cpuCards] = compare(randomPCard, randomCpuCard, playerCards, cpuCards); 
     tally(playerCards, cpuCards)
 }
 
@@ -97,8 +97,6 @@ function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
     console.log("Player cards before war:", playerCards, "CPU cards before war:", cpuCards);
-    // let warPCard = lastFourPlayerCards[lastFourPlayerCards.length - 1]; // last one of each
-    // let warCpuCard = lastFourCpuCards[lastFourCpuCards.length - 1];
     let warPCard = lastFourPlayerCards[Math.floor(Math.random()*lastFourPlayerCards.length)]
     let warCpuCard = lastFourCpuCards[Math.floor(Math.random()*lastFourCpuCards.length)]
     warPValue = determineValue(warPCard);
