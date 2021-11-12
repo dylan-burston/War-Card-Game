@@ -1,4 +1,4 @@
-# **WAR** a <span style="color:black">&spades;</span>battle <span style="color:red">&diams;</span>of<span style="color:black">&clubs;</span> cards <span style="color:red">&hearts;</span> 
+# **WAR** a battle of cards <span style="color:black">&spades;</span><span style="color:red">&diams;</span><span style="color:black">&clubs;</span><span style="color:red">&hearts;</span> 
 
 ## Rules and Game Play
 War is a 2 person card game. The deck is shuffled and split evenly between the two players - CPU and Player 1. Each player then flips a card automatically by clicking the player's deck (blue deck) and the highest value - regardless of suit - wins the cards in play. First player to collect all 52 cards wins the game. If both cards match then it's war! Each player automatically adds 3 cards to the In Play container and the 4th card is flipped, highest card wins the total amount of cards in play - 8. 
@@ -37,7 +37,7 @@ This is the In Play container where the current cards in play will sit &#8595;
 <br><br>
 
 ## Technologies Used
-<BR>
+<br>
 <p align="left">
   <img width="50" src="card-deck-css/images/html.jpeg"> 
   HTML
@@ -57,7 +57,12 @@ This is the In Play container where the current cards in play will sit &#8595;
   <img width="50" src="card-deck-css/images/markdown.jpg"> 
   MARKDOWN
 </p>
-<br><br>
+<br>
+<p align="left">
+  <img width="50" src="card-deck-css/images/git.jpg"> 
+  GIT
+</p>
+<br>
 
 ## Let's Play!
 Click [here](https://pages.git.generalassemb.ly/dburston/War-Card-Game/) in order to play the game. 
