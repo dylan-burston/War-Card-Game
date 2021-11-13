@@ -96,7 +96,6 @@ function determineValue(incomingCard) {
 function war(playerCards, cpuCards){
     lastFourPlayerCards = playerCards.slice(Math.max(playerCards.length -4, 0));
     lastFourCpuCards = cpuCards.slice(Math.max(cpuCards.length -4, 0));
-    console.log("Player cards before war:", playerCards, "CPU cards before war:", cpuCards);
     let warPCard = lastFourPlayerCards[Math.floor(Math.random()*lastFourPlayerCards.length)]
     let warCpuCard = lastFourCpuCards[Math.floor(Math.random()*lastFourCpuCards.length)]
     warPValue = determineValue(warPCard);
@@ -112,11 +111,9 @@ function war(playerCards, cpuCards){
     if (lastPlayerCards.length > lastCpuCards.length){
         playerCards = [playerCards, warCpuCard, lastCpuCards].flat();
         cpuCards = cpuCards.slice(0,cpuCards.length-4);
-        console.log("Player cards after war:", playerCards, "CPU cards after war:", cpuCards);
     } else {
         cpuCards = [cpuCards, warPCard, lastPlayerCards].flat();
         playerCards = playerCards.slice(0,playerCards.length-4);
-        console.log("Player cards after war:", playerCards, "CPU cards after war:", cpuCards);
     }
     return [playerCards, cpuCards]
 }

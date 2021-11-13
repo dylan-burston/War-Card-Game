@@ -6,6 +6,7 @@ body {
 	background-image: url("card-deck-css/images/cardgame.jpeg");
 	object-fit: cover;
   }
+
   .playableContainer {
 	display: flex;
 	justify-content: space-between;
@@ -16,8 +17,8 @@ body {
 	background-size: 100% 100%;
 	border-radius: 20%;
   }
-  .cpuBox,
-  .playerBox {
+
+  .cpuBox, .playerBox {
 	border: 3px solid rgb(214, 187, 187);
 	height: 100px;
 	width: 120px;
@@ -25,47 +26,50 @@ body {
 	border-radius: 10%;
 	margin-top: 21px;
   }
-  .playerTally,
-  .cpuTally {
+
+  .playerTally, .cpuTally {
 	font-size: 40px;
 	color: rgb(8, 211, 35);
 	text-align: center;
 	margin-top: 8px;
   }
-  .dealtContainer,
-  .cpuInfo,
-  .playerInfo {
+
+  .dealtContainer, .cpuInfo, .playerInfo {
 	display: flex;
 	justify-content: space-evenly;
   }
-  .inPlayCards,
-  .dealtContainer {
+
+  .inPlayCards, .dealtContainer {
 	margin: auto;
 	margin-top: 15vh;
   }
-  .cpuInPlayContainer,
-  .playerInPlayContainer {
+
+  .cpuInPlayContainer, .playerInPlayContainer {
 	margin-top: 40px;
   }
+
   .gamePlay {
 	display: flex;
 	flex-direction: column;
 	color: black;
   }
+
   .gamePlay:hover {
 	font-size: large;
   }
-  .instructions > h1,
-  h2 {
+
+  .instructions > h1, h2 {
 	padding: 2px;
 	text-align: center;
 	text-transform: uppercase;
 	color: rgb(214, 187, 187);
   }
+
   .instructions > h2 {
 	text-align: center;
 	text-transform: lowercase;
   }
+
   .announcement {
 	color: rgb(214, 187, 187);
 	font-size: 150px;
@@ -73,6 +77,7 @@ body {
 	text-align: center;
 	margin-top: 310px;
   }
+
   button {
 	border-radius: 10%;
 	background-color: black;
@@ -83,14 +88,17 @@ body {
 	font-family: emoji;
 	margin: 10px;
   }
+
   button:hover {
 	cursor: pointer;
 	filter: invert(1);
   }
+
   .warContainer {
 	display: flex;
 	justify-content: center;
   }
+
   .gameName {
 	display: flex;
 	justify-content: center;
@@ -103,14 +111,17 @@ body {
 	margin-top: 10px;
 	text-align: center;
   }
+
   .instructCont {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
   }
+
   .shuffle {
 	width: 200px;
   }
+  
   .forceWinCont {
 	display: flex;
 	align-items: center;
